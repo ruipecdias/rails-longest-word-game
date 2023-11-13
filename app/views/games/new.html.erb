@@ -1,0 +1,21 @@
+<p>Available letters:
+  <%= @letters.each do |letter| %>
+    <span style="background: blue; padding: 2px; color: white;
+</p>
+
+<form action="/score" method="POST" data-tubro="false">
+  <!-- params[:authenticity_token] -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" value="<% @letters%>" name="letters">
+  <input type="hidden" value="<%= form_authenticity_token %>">
+
+  <div>
+    <label for="guess">What's the longest word you can find?</label>
+  </div>
+
+  <div style="margin: 4px 0">
+    <!-- params[:guess] -->
+    <input type="text" id="guess" name="guess" />
+    <input type="submit" value="Play!" />
+  </div>
+</form>
